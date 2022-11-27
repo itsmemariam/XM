@@ -342,7 +342,7 @@ $(function () {
 
             /**
              * Prevent space button on keypress
-             * @param {object} e 
+             * @param {object} e - event object to check what key is pressed
              */
             function preventSpaceKeypress(e) {
                 //for this to work we must have keydown event or keypress

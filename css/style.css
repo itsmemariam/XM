@@ -773,6 +773,7 @@ header .menu {
   bottom: 50%;
   background: none;
   margin-bottom: -12px;
+  cursor: pointer;
 }
 .carousel .splide__arrow--prev {
   right: 100%;

@@ -95,7 +95,7 @@
             <div v-for="coinData in coinsData" class="coin">
                 <div class="coin__header">
                     <div class="coin__img">
-                        <img :src="`img/coins/${coinData.symbol}.png`" alt="coin">
+                        <img :src="`img/coins/${coinData.symbol.toLowerCase()}.png`" alt="coin">
                     </div><!-- /.coin__img -->
                     <div class="coin__code">
                         <p>

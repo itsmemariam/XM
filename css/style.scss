@@ -1359,6 +1359,10 @@ main{
             width: 320px;
             top: 6.5%;
         }
+
+        &.background__item-7{
+            display: none;
+        }
     }
 
     @include tablet{

@@ -53,8 +53,6 @@ $(function () {
             }).done(function (data) {
                 const usedCoins = ['BTC', 'ETH', 'XRP', 'BCH', 'LTC'];
                 const coinsDetails = data.data.filter(coin => usedCoins.includes(coin.symbol));
-                console.log(coinsDetails);
-                resolve(coinsDetails);
             }).fail(function (err) {
                 console.log(err);
                 reject(err);
@@ -94,7 +92,6 @@ $(function () {
                 async mounted() {
                     await this.getCoinsData();
                     this.formatPrices();
-                    console.log('data', this.coinsData);
                 },
             }).mount('#coins');
 
@@ -215,12 +212,10 @@ $(function () {
 
                 const isValid = validateEmail(email);
                 if (!isValid) {
-                    console.log('invalid email');
                     isValidForm.email = false;
                     $(emailRule).removeClass('valid');
                     $(emailRule).addClass('invalid');
                 } else {
-                    console.log('valid email');
                     $(emailRule).addClass('valid');
                     $(emailRule).removeClass('invalid');
                     isValidForm.email = true;
@@ -253,7 +248,6 @@ $(function () {
 
 
                 const validation = validatePassword(password);
-                console.log('validation', validation);
 
                 for (const item in validation) {
                     var passwordMsg = `${passwordRule}[data-type="${validation[item].name}"]`;
@@ -268,10 +262,8 @@ $(function () {
                 }
 
                 if (!isValid) {
-                    console.log('invalid password');
                     isValidForm.password = false;
                 } else {
-                    console.log('valid password');
                     isValidForm.password = true;
                 }
                 

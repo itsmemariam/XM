@@ -830,6 +830,7 @@ header{
 
         .register__times__time{
             min-width: 180px;
+            border-bottom: none;
 
             &:nth-child(2){
                 border-left: 1px solid #FFFFFF;

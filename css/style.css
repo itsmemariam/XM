@@ -695,6 +695,7 @@ header .menu {
   }
   .register .register__times__time {
     min-width: 180px;
+    border-bottom: none;
   }
   .register .register__times__time:nth-child(2) {
     border-left: 1px solid #FFFFFF;

@@ -242,6 +242,7 @@ header .menu {
   font-weight: 500;
   font-size: 7.84239px;
   line-height: 120%;
+  margin-top: 0.5px;
 }
 .coins-container .coin__total p {
   font-style: normal;

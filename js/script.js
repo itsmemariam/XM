@@ -175,7 +175,6 @@ $(function () {
      */
     function initEventsHandlers() {
         initFormEventsHandlers();
-        initWindowResizeEventsHandlers();
 
         /**
          * Initializes all form events handlers

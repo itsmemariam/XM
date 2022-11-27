@@ -1,0 +1,73 @@
+// mixin and function definitions
+
+$destop: (
+    'min-width: 1200px'
+);
+$tablet: (
+    'min-width: 768px'
+);
+$mobile: (
+    '(max-width: 767px)'
+);
+
+@mixin desktop {
+    @media (#{$destop}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (#{$tablet}) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (#{$mobile}) {
+        @content;
+    }
+}
+
+//buttons
+@mixin primary-btn() {
+    max-width: 345px;
+    width: 100%;
+    background: #29A643;
+    color: white;
+    height: 40px;
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    border: none;
+    padding: 0;
+    margin: 0 auto;
+    cursor: pointer;
+    display: block;
+
+    &:hover {
+    }
+
+    &:active {
+    }
+}
+
+
+/**
+* $whyGridDeskTop: (id,grid-area)
+*/
+$whyGridSystem: (
+    desktop: (parent: (grid-template-columns: repeat(3, 1fr),
+            grid-template-rows: repeat(2, 1fr),
+            grid-column-gap: 20px,
+            grid-row-gap: 20px,
+        ),
+        child:((1, '1 / 1 / 3 / 2'),
+            (2, '1 / 2 / 2 / 4'),
+            (3, '2 / 2 / 3 / 3'),
+            (4, '2 / 3 / 3 / 4')))
+);
+
+$whyDesktop: map-get($whyGridSystem, desktop);
+$whyDesktopParent: map-get($whyDesktop, parent);
+$whyDesktopChild: map-get($whyDesktop, child);

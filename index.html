@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XM</title>
+    <!-- scripts -->
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- vue3 -->
+    <script src="https://unpkg.com/vue@3.1.1/dist/vue.global.prod.js"></script>
+
+    <!-- splide lib -->
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide-core.min.css">
+
+    <!-- local files -->
+    <script src="js/script.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="header__wrap">
+            <div class="logo">
+                <img src="img/logos/logo.png" alt="logo">
+            </div><!-- /.logo -->
+            <div class="menu">
+                <a href="google.com" target="_blank" class="menu__link">XM Homepage</a><!-- /.menu__link -->
+                <a href="google.com" target="_blank" class="menu__link">Support</a><!-- /.menu__link -->
+            </div><!-- /.menu -->
+        </div><!-- /.header__wrap -->
+    </header>
+
+    <main>
+        <div class="background">
+            <div class="background__item background__item-1">
+                <img src="img/background/Cube-glass-2.svg" alt="background">
+            </div><!-- /.background__item -->
+            <div class="background__item background__item-2">
+                <img src="img/background/Cube-glass-3.svg" alt="background">
+            </div><!-- /.background__item -->
+            <div class="background__item background__item-3">
+                <img src="img/background/Cup-glass-1.svg" alt="background">
+            </div><!-- /.background__item -->
+            <div class="background__item background__item-4">
+                <img src="img/background/Gold-Number-01.svg" alt="background">
+            </div><!-- /.background__item -->
+            <div class="background__item background__item-5">
+                <img src="img/background/Gold-Number-02.svg" alt="background">
+            </div><!-- /.background__item -->
+            <div class="background__item background__item-6">
+                <img src="img/background/Gold-Number-angle-2.svg" alt="background">
+            </div><!-- /.background__item -->
+            <div class="background__item background__item-7">
+                <img src="img/background/green-hue.svg" alt="background">
+            </div><!-- /.background__item -->
+            <div class="background__item background__item-8">
+                <img src="img/background/Perforated-ring-glass-2.svg" alt="background">
+            </div><!-- /.background__item -->
+            <div class="background__item background__item-9">
+                <img src="img/background/pink-hue.svg" alt="background">
+            </div><!-- /.background__item -->
+            <div class="background__item background__item-10">
+                <img src="img/background/Vector-4.svg" alt="background">
+            </div><!-- /.background__item -->
+        </div><!-- /.background -->
+        <div class="head">
+            <div class="overlay"></div><!-- /.overlay --> 
+            <h3 class="head__sub-title">trade with</h3>
+            <h1 class="head__main-title">
+                <b>Zero Swaps</b> on All XM Ultra Low Accounts for more than 25 instruments!
+            </h1>
+            <p class="head__desc">
+                Enjoy spreads <b>as low as 0.6 pips</b> and <b>leverage up to 1000:1</b> on instruments like
+                <b>EURUSD, USDJPY, EURJPY, GBPUSD,</b> and <b>Gold.</b>
+            </p>
+            <button class="head__main-btn">open account</button><!-- /.main-btn -->
+            <p class="head__demo">
+                New to trading? Try a <a class="demo__link" href="google.com" target="_blank">Demo account.</a>
+            </p><!-- /.demo -->
+            <p class="head__terms">
+                Terms and Conditions apply<span class="terms__astrik">*</span>. To read the full T&Cs, <a
+                    class="terms__link" target="_blank" href="google.com">click here.</a>
+            </p><!-- /.terms -->
+        </div><!-- /.head -->
+
+        <!-- Coins block uses vue to render data -->
+        <div id="coins" class="coins-container">
+            <div v-for="coinData in coinsData" class="coin">
+                <div class="coin__header">
+                    <div class="coin__img">
+                        <img :src="`img/coins/${coinData.symbol}.png`" alt="coin">
+                    </div><!-- /.coin__img -->
+                    <div class="coin__code">
+                        <p>
+                            {{coinData.symbol}}
+                        </p>
+                    </div><!-- /.coin__code -->
+                    <div class="coin__name">
+                        <p>
+                            {{coinData.name}}
+                        </p>
+                    </div><!-- /.coin__name -->
+                </div><!-- /.coin__header -->
+                <div class="coin__content">
+                    <div class="coin__total">
+                        <p>
+                            {{coinData.format_price_usd}}
+                        </p>
+                    </div><!-- /.coin__total -->
+                    <div
+                        :class="{'coin__percentage':true, 'coin__percentage_positive': coinData.percent_change_24h > 0, 'coin__percentage_negative': coinData.percent_change_24h < 0}">
+                        <p>
+                            <img :src="`/img/svg/${coinData.percent_change_24h < 0?'negative':'positive'}.svg`"
+                                alt="positive or negative" />
+                            {{coinData.percent_change_24h}}%
+                        </p>
+                    </div><!-- /.coin__percentage -->
+                </div><!-- /.coin__content -->
+            </div><!-- /.coin -->
+        </div><!-- /.coins-container -->
+
+        <div id="whys" class="whys">
+            <div class="whys__desc">
+                <div class="whys__title">
+                    <h3>
+                        Why <b>Trade</b><br class="show-mobile "> with XM?
+                    </h3>
+                </div><!-- /.whys__title -->
+                <div class="whys__sep"></div><!-- /.whys__sep -->
+                <div class="whys__text">
+                    <p>
+                        We have been providing traders around the world with the same <b>premium experience</b> for over
+                        a decade. As an <b>industry-leader</b>, we know what the modern trader needs to be successful in
+                        the markets.
+                    </p>
+                </div><!-- /.whys__text -->
+            </div><!-- /.whys__desc -->
+
+            <!-- Why block uses vue to render data -->
+            <div id="why" class="whys__why-container">
+                <div v-for="whyData in whysData" class="whys__why">
+                    <div class="whys__why-title">
+                        <h3 v-html="whyData.title"></h3>
+                        <div class="whys__why-sep"></div><!-- /.whys__why-sep -->
+                    </div><!-- /.whys__why-title -->
+                    <div class="whys__why-text">
+                        <p v-html="whyData.desc">
+                        </p>
+                    </div><!-- /.whys__why-text -->
+                    <div class="whys__why-img">
+                        <img :src="`img/${whyData.img}`" alt="why">
+                    </div><!-- /.whys__why-img -->
+                </div><!-- /.whys__why -->
+            </div><!-- /.whys__why-container -->
+        </div><!-- /.whys -->
+
+        <div class="register">
+            <div class="register__title">
+                <h2>
+                    - Register Here -
+                </h2>
+            </div><!-- /.register__title -->
+            <div class="register__desc">
+                <p>
+                    Join us to celebrate our biggest night of the year.
+                </p>
+            </div><!-- /.register__desc -->
+            <div class="register__times">
+                <div class="register__times__time register__time-date">
+                    <div class="register__img">
+                        <img src="img/date.png" alt="date">
+                    </div><!-- /.register__img -->
+                    <div class="register__text">
+                        <p>
+                            05 NOVEMBER 2022
+                        </p>
+                    </div><!-- /.register__text -->
+                </div><!-- /.register__time-date -->
+
+                <div class="register__times__time register__time-date">
+                    <div class="register__img">
+                        <img src="img/hour.png" alt="hour">
+                    </div><!-- /.register__img -->
+                    <div class="register__text">
+                        <p>
+                            16:00 – 23:00
+                        </p>
+                    </div><!-- /.register__text -->
+                </div><!-- /.register__time-date -->
+
+                <div class="register__times__time register__time-date">
+                    <div class="register__img">
+                        <img src="img/location.png" alt="location">
+                    </div><!-- /.register__img -->
+                    <div class="register__text">
+                        <p>
+                            Centara Grand & Bangkok<br> Convention Centre, Bangkok
+                        </p>
+                    </div><!-- /.register__text -->
+                </div><!-- /.register__time-date -->
+            </div><!-- /.register__time -->
+
+            <div class="register__form">
+                <form id="register-form">
+                    <div class="register__form-group register__form-group-email">
+                        <label for="email" class="register__form-label">Email:</label>
+                        <input type="email" id="email" class="register__form-input" name="email" required="required">
+                        <div class="register__form-email-rule" data-type="email">
+                            <p>
+                                Please Enter Valid Email
+                            </p>
+                        </div><!-- /.register__form-passwords-rule -->
+                    </div>
+                    <div class="register__form-group register__form-group-password">
+                        <label for="password" class="register__form-label">Password:</label>
+                        <input type="password" class="register__form-input" name="password" minlength="8" maxlength="15"
+                            id="password" required="required">
+                        <div class="register__form-passwords-rules">
+                            <div class="register__form-passwords-rule" data-type="length">
+                                <p>
+                                    8 - 15 characters
+                                </p>
+                            </div><!-- /.register__form-passwords-rule -->
+                            <div class="register__form-passwords-rule" data-type="number">
+                                <p>
+                                    1 or more numbers
+                                </p>
+                            </div><!-- /.register__form-passwords-rule -->
+                            <div class="register__form-passwords-rule" data-type="lowercase">
+                                <p>
+                                    1 or more lower case letters
+                                </p>
+                            </div><!-- /.register__form-passwords-rule -->
+                            <div class="register__form-passwords-rule" data-type="uppercase">
+                                <p>
+                                    1 or more upper case letters
+                                </p>
+                            </div><!-- /.register__form-passwords-rule -->
+                            <div class="register__form-passwords-rule" data-type="specialChar">
+                                <p>
+                                    1 or more special characters (#[]()@$&*!?|,.^/\+_-)
+                                </p>
+                            </div><!-- /.register__form-passwords-rule -->
+                        </div><!-- /.register__form-passwords-rules -->
+                    </div>
+
+                    <div class="register__success">
+                        <div class="regstier__success-img">
+                            <img src="img/checkmark.png" alt="success">
+                        </div><!-- /.regstier__success-img -->
+                        <div class="register__success-title">
+                            <h4>
+                                Registration Successful
+                            </h4>
+                        </div><!-- /.register__success-title -->
+                        <div class="register__success-text">
+                            <p>
+                                Thank you for registering for our event with XM. You will receive an email shortly with
+                                of your registration.
+                            </p>
+                        </div><!-- /.register__success-text -->
+                    </div><!-- /.register__success -->
+
+                    <div class="register__form-group register__form-group-submit">
+                        <button type="submit" class="main-btn register__form-button" name="submit" disabled>register
+                            now</button>
+                    </div>
+                </form>
+            </div><!-- /.register__form -->
+            <div class="register__noAccount">
+                <p>
+                    Don’t have an account? <a href="google.com" target="_blank" class="register__link">Create one
+                        here</a><!-- /.register__link --> and register for the event
+                </p>
+            </div><!-- /.register__noAccount -->
+            <div class="register__terms">
+                <p>
+                    Terms and Conditions apply*. To read the full T&Cs, click <a href="google.com" target="_blank"
+                        class="register__link">here</a><!-- /.register__link -->.
+                </p>
+            </div><!-- /.register__terms -->
+        </div><!-- /.register -->
+
+        <div class="carousel">
+            <div class="carousel__title">
+                <h3>
+                    Event Gallery
+                </h3>
+            </div><!-- /.carousel__title -->
+
+            <section class="splide">
+                <div class="splide__arrows">
+                    <button class="splide__arrow splide__arrow--prev">
+                        <img src="img/carousel/left-arrow.png" alt="left arrow">
+                    </button>
+                    <button class="splide__arrow splide__arrow--next">
+                        <img src="img/carousel/right-arrow.png" alt="right arrow">
+                    </button>
+                </div>
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <img src="img/carousel/thumbnail.png" alt="thumbnail">
+                        </li>
+                        <li class="splide__slide">
+                            <img src="img/carousel/thumbnail.png" alt="thumbnail">
+                        </li>
+                        <li class="splide__slide">
+                            <img src="img/carousel/thumbnail.png" alt="thumbnail">
+                        </li>
+                        <li class="splide__slide">
+                            <img src="img/carousel/thumbnail.png" alt="thumbnail">
+                        </li>
+                        <li class="splide__slide">
+                            <img src="img/carousel/thumbnail.png" alt="thumbnail">
+                        </li>
+                        <li class="splide__slide">
+                            <img src="img/carousel/thumbnail.png" alt="thumbnail">
+                        </li>
+                        <li class="splide__slide">
+                            <img src="img/carousel/thumbnail.png" alt="thumbnail">
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div><!-- /.carousel -->
+
+        <div id="learn" class="learn">
+            <div class="learn__wrap">
+                <div class="learn__head">
+                    <div class="lean__sep">
+    
+                    </div><!-- /.lean__sep -->
+                    <div class="learn__title">
+                        <h3>
+                            Big<span class="learn__fullstop">.</span> Fair<span class="learn__fullstop">.</span> Human<span
+                                class="learn__fullstop">.</span>
+                        </h3>
+                    </div><!-- /.learn__title -->
+                    <div class="learn__desc">
+                        <p>
+                            Learn why <b>over 5 million clients choose XM</b> as their trusted online broker.
+                        </p>
+                    </div><!-- /.learn__desc -->
+                </div><!-- /.learn__head -->
+    
+                <div class="learn__points">
+                    <div class="learn__points-seperator">
+                        <img src="img/svg/sep.svg" alt="seperator">
+                    </div><!-- /.learn__points-seperator -->
+                    <div v-for="learnData in learnsData" class="learn__point">
+                        <div class="learn__point__icon">
+                            <img :src="`img/${learnData.img}`" alt="learn">
+                        </div><!-- /.learn__point__icon -->
+                        <div class="learn__point__title">
+                            <h3>{{learnData.title}}</h3>
+                        </div><!-- /.learn__point__title -->
+                        <div class="learn__point__desc">
+                            <p>
+                                {{learnData.desc}}
+                            </p>
+                        </div><!-- /.learn__point__desc -->
+                    </div><!-- /.learn__point -->
+                </div><!-- /.learn__points -->
+            </div><!-- /.learn__wrap -->
+        </div><!-- /.learn -->
+
+    </main>
+
+    <footer>
+        <div class="footer-blocks">
+            <div class="footer-block-top">
+                <div class="footer-block-top__logos">
+                    <div class="footer-block-top__logo">
+                        <img src="img/logos/client-logo-1.png" alt="logo">
+                    </div><!-- /.footer-block-top__logo -->
+                    <div class="footer-block-top__logo">
+                        <img src="img/logos/client-logo-2.png" alt="logo">
+                    </div><!-- /.footer-block-top__logo -->
+                    <div class="footer-block-top__logo">
+                        <img src="img/logos/client-logo-3.png" alt="logo">
+                    </div><!-- /.footer-block-top__logo -->
+                    <div class="footer-block-top__logo">
+                        <img src="img/logos/client-logo-4.png" alt="logo">
+                    </div><!-- /.footer-block-top__logo -->
+                </div><!-- /.footer-block-top__logos -->
+                <div class="footer-block-top__socials">
+                    <p class="footer-block-top__socials__text">
+                        Follow us on
+                    </p><!-- /.footer-block-top__socials__text -->
+                    <img src="img/social/facebook.png" alt="social" class="footer-block-top__social">
+                    <img src="img/social/twitter.png" alt="social" class="footer-block-top__social">
+                    <img src="img/social/youtube.png" alt="social" class="footer-block-top__social">
+                    <img src="img/social/instagram.png" alt="social" class="footer-block-top__social">
+                    <img src="img/social/linkedin.png" alt="social" class="footer-block-top__social">
+                </div><!-- /.footer-block-top__socials -->
+            </div><!-- /.footer-block-top -->
+
+            <div class="footer-block-bottom">
+                <div class="footer-block-bottom__links">
+                    <div class="footer-block-bottom__link">
+                        <a target="_blank" href="google.com">Privacy Policy</a>
+                    </div><!-- /.footer-block-bottom__link -->
+                    <p class="footer__sep">
+                        |
+                    </p><!-- /.footer__sep -->
+                    <div class="footer-block-bottom__link">
+                        <a target="_blank" href="google.com">Cookie Policy</a>
+                    </div><!-- /.footer-block-bottom__link -->
+                    <p class="footer__sep">
+                        |
+                    </p><!-- /.footer__sep -->
+                    <div class="footer-block-bottom__link">
+                        <a target="_blank" href="google.com">Terms and Conditions</a>
+                    </div><!-- /.footer-block-bottom__link -->
+                </div><!-- /.footer-block-bottom__links -->
+                <div class="footer-block-bottom__logo">
+                    <img src="img/logos/footer-logo.png" alt="logo">
+                </div><!-- /.footer-block-bottom__logo -->
+            </div><!-- /.footer-block-bottom -->
+        </div><!-- /.footer__blocks -->
+    </footer>
+</body>
+
+</html>

@@ -135,6 +135,7 @@ header .menu {
   margin: 0 auto;
   cursor: pointer;
   display: block;
+  margin-bottom: 7px;
 }
 .head .head__demo {
   font-style: normal;
@@ -168,6 +169,9 @@ header .menu {
   }
   .head .head__desc {
     max-width: 54%;
+  }
+  .head .head__main-btn {
+    margin-bottom: 15px;
   }
 }
 @media (min-width: 1200px) {

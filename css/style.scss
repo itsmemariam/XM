@@ -132,6 +132,7 @@ header{
 
     .head__main-btn{
         @include primary-btn;
+        margin-bottom: 7px;
     }
 
     .head__demo{
@@ -172,6 +173,10 @@ header{
 
         .head__desc{
             max-width: 54%;
+        }
+
+        .head__main-btn{
+            margin-bottom: 15px;
         }
     }
     

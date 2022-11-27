@@ -53,6 +53,7 @@ $(function () {
             }).done(function (data) {
                 const usedCoins = ['BTC', 'ETH', 'XRP', 'BCH', 'LTC'];
                 const coinsDetails = data.data.filter(coin => usedCoins.includes(coin.symbol));
+                resolve(coinsDetails);
             }).fail(function (err) {
                 console.log(err);
                 reject(err);

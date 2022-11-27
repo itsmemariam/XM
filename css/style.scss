@@ -1,5 +1,5 @@
 @use 'mixin' as *; // import all mixin
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500;700;900&display=swap'); // import font
+// @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500;700;900&display=swap'); // import font
 
 // init styling
 body{
@@ -394,7 +394,7 @@ header{
     .whys__why{
         padding: 42px 30px;
         background: #0B0819;
-        backdrop-filter: blur(45px);
+        // backdrop-filter: blur(45px);
         border-radius: 10px;
         position: relative;
         margin-bottom: 25px;

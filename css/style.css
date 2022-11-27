@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500;700;900&display=swap");
 /**
 * $whyGridDeskTop: (id,grid-area)
 */
@@ -337,8 +336,6 @@ header .menu {
 .whys .whys__why {
   padding: 42px 30px;
   background: #0B0819;
-  -webkit-backdrop-filter: blur(45px);
-          backdrop-filter: blur(45px);
   border-radius: 10px;
   position: relative;
   margin-bottom: 25px;

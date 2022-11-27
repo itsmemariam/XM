@@ -510,28 +510,6 @@ header{
             }
         }
 
-        .whys__why:nth-child(1){
-            min-height: 570px;
-            justify-content: space-between;
-            padding: 48px 52px;
-
-            
-            .whys__why-text{
-                margin-bottom: auto;
-
-                p{
-                    max-width: 95%;
-                }
-            }
-
-            .whys__why-img{
-                position: unset;
-                height: 212px;
-                margin-bottom: -20px;
-                margin-left: -15px;
-            }
-        }
-
         .whys__title{
             h3{
                 font-size: 35px;
@@ -549,6 +527,35 @@ header{
             max-width: unset;
             min-height: unset;
             margin: unset;
+
+            &:nth-child(1){
+                min-height: 570px;
+                justify-content: space-between;
+                padding: 48px 52px;
+    
+                
+                .whys__why-text{
+                    margin-bottom: auto;
+    
+                    p{
+                        max-width: 95%;
+                    }
+                }
+    
+                .whys__why-img{
+                    position: unset;
+                    height: 212px;
+                    margin-bottom: -20px;
+                    margin-left: -15px;
+                }
+            }
+
+            &:nth-child(3),
+            &:nth-child(4){
+                .whys__why-img{
+                    height: 75px;
+                }
+            }
         }
     }
 }

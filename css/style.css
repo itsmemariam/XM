@@ -433,6 +433,18 @@ header .menu {
     max-width: 79%;
     font-size: 16px;
   }
+  .whys .whys__title h3 {
+    font-size: 35px;
+  }
+  .whys .whys__text p {
+    max-width: 641px;
+    margin: 0 auto;
+  }
+  .whys .whys__why {
+    max-width: unset;
+    min-height: unset;
+    margin: unset;
+  }
   .whys .whys__why:nth-child(1) {
     min-height: 570px;
     justify-content: space-between;
@@ -450,17 +462,8 @@ header .menu {
     margin-bottom: -20px;
     margin-left: -15px;
   }
-  .whys .whys__title h3 {
-    font-size: 35px;
-  }
-  .whys .whys__text p {
-    max-width: 641px;
-    margin: 0 auto;
-  }
-  .whys .whys__why {
-    max-width: unset;
-    min-height: unset;
-    margin: unset;
+  .whys .whys__why:nth-child(3) .whys__why-img, .whys .whys__why:nth-child(4) .whys__why-img {
+    height: 75px;
   }
 }
 

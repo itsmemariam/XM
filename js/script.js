@@ -68,34 +68,12 @@ $(function () {
      * Renders all repetitive blocks using vue3
      */
     function initVueBlocks() {
+        const { createApp } = Vue
         initCoinsBlock();
+        initWhyBlock();
+        initLearnBlock();
 
-        
-        function initCoinsBlock() {
-            const { createApp } = Vue
-
-            createApp({
-                data() {
-                    return {
-                        coinsData: [],
-                    }
-                },
-                methods: {
-                    async getCoinsData() {
-                        this.coinsData = await fetchCoinsData();
-                    },
-                    formatPrices() {
-                        this.coinsData.map(coin => {
-                            coin.format_price_usd = formatter.format(coin.price_usd);
-                        });
-                    },
-                },
-                async mounted() {
-                    await this.getCoinsData();
-                    this.formatPrices();
-                },
-            }).mount('#coins');
-
+        function initWhyBlock(){
             createApp({
                 data() {
                     return {
@@ -124,7 +102,9 @@ $(function () {
                     }
                 }
             }).mount('#why');
+        }
 
+        function initLearnBlock(){
             createApp({
                 data() {
                     return {
@@ -155,6 +135,32 @@ $(function () {
             }).mount('#learn');
         }
 
+        
+        function initCoinsBlock() {
+
+            createApp({
+                data() {
+                    return {
+                        coinsData: [],
+                    }
+                },
+                methods: {
+                    async getCoinsData() {
+                        this.coinsData = await fetchCoinsData();
+                    },
+                    formatPrices() {
+                        this.coinsData.map(coin => {
+                            coin.format_price_usd = formatter.format(coin.price_usd);
+                        });
+                    },
+                },
+                async mounted() {
+                    await this.getCoinsData();
+                    this.formatPrices();
+                },
+            }).mount('#coins');
+        }
+
         /**
      * formatter converts the number to a USD currency string and adds commas to separate thousands with dollar sign
      */
@@ -170,12 +176,6 @@ $(function () {
     function initEventsHandlers() {
         initFormEventsHandlers();
         initWindowResizeEventsHandlers();
-
-        function initWindowResizeEventsHandlers() {
-            $(window).resize(function () {
-                
-            });
-        }
 
         /**
          * Initializes all form events handlers
@@ -340,6 +340,10 @@ $(function () {
                 }
             });
 
+            /**
+             * Prevent space button on keypress
+             * @param {object} e 
+             */
             function preventSpaceKeypress(e) {
                 //for this to work we must have keydown event or keypress
                 if (e.keyCode === 32) {
@@ -361,6 +365,9 @@ $(function () {
 
             }
 
+            /**
+             * check if form is valid
+             */
             function checkFormValidity(){
                 $(successMessage).removeClass('show');
                 if(isValidForm.email && isValidForm.password){

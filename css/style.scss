@@ -1,5 +1,5 @@
 @use 'mixin' as *; // import all mixin
-// @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500;700;900&display=swap'); // import font
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500;700;900&display=swap'); // import font
 
 // init styling
 body{
@@ -819,7 +819,7 @@ header{
     }
 
     @include tablet{
-        padding: 0 75px;
+        padding: 0px 69px;
 
         .register__times{
             display: flex;
@@ -829,7 +829,7 @@ header{
         }
 
         .register__times__time{
-            min-width: 180px;
+            min-width: 29.1%;
             border-bottom: none;
 
             &:nth-child(2){

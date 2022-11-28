@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500;700;900&display=swap");
 /**
 * $whyGridDeskTop: (id,grid-area)
 */
@@ -685,7 +686,7 @@ header .menu {
 }
 @media (min-width: 768px) {
   .register {
-    padding: 0 75px;
+    padding: 0px 69px;
   }
   .register .register__times {
     display: flex;
@@ -694,7 +695,7 @@ header .menu {
     border-bottom: 1px solid #FFFFFF;
   }
   .register .register__times__time {
-    min-width: 180px;
+    min-width: 29.1%;
     border-bottom: none;
   }
   .register .register__times__time:nth-child(2) {
